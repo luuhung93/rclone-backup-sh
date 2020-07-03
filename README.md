@@ -9,3 +9,10 @@ curl https://rclone.org/install.sh | sudo bash
 
 #https://rclone.org/drive/
 rclone config
+
+//auto 2:00AM everything day.
+EDITOR=nano crontab -e
+0 2 * * * /root/backup.sh > /dev/null 2>&1
+
+// At 00:00 on Sunday
+0 0 * * 0 

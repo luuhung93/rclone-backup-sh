@@ -26,16 +26,11 @@ echo "Starting Uploading Backup";
 rclone move $BACKUP_DIR "remote:$SERVER_NAME/$TIMESTAMP" >> /var/log/rclone.log 2>&1
 # Clean up
 rm -rf $BACKUP_DIR
-rclone -q --min-age 1w delete "remote:$SERVER_NAME" #Remove all backups older than 2 week
-rclone -q --min-age 1w rmdirs "remote:$SERVER_NAME" #Remove all empty folders older than 2 week
+rclone -q --min-age 1w delete "remote:$SERVER_NAME" #Remove all backups older than 1 week
+rclone -q --min-age 1w rmdirs "remote:$SERVER_NAME" #Remove all empty folders older than 1 week
 rclone cleanup "remote:" #Cleanup Trash
 echo "Finished";
 echo '';
 
 duration=$SECONDS
 echo "Total $size, $(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
-
-
-
-
-
