@@ -5,14 +5,17 @@
 SERVER_NAME=UNITY
 
 TIMESTAMP=$(date +"%F")
-BACKUP_DIR="/root/backup/$TIMESTAMP"
+BACKUP_DIR="/home/backup/$TIMESTAMP"
 
 SECONDS=0
 
 mkdir -p "$BACKUP_DIR/mongo"
 
-echo "Starting Backup Database";
-mongodump --archive="$BACKUP_DIR/dump.gz" --gzip --db=unity
+cd $BACKUP_DIR/mongo
+
+echo "Starting Backup Database and";
+mongodump
+tar -cjvf $TIMESTAMP"dump.tar.gz" dump
 echo "Finished";
 echo '';
 
