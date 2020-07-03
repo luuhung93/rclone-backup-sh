@@ -5,7 +5,7 @@
 SERVER_NAME=UNITY
 
 TIMESTAMP=$(date +"%F")
-BACKUP_DIR="/home/backup/$TIMESTAMP"
+BACKUP_DIR="/home/rclone-backup-sh/$TIMESTAMP"
 
 SECONDS=0
 
