@@ -27,12 +27,12 @@ echo '';
 size=$(du -sh $BACKUP_DIR | awk '{ print $1}')
 
 echo "Starting Uploading Backup";
-/usr/sbin/rclone move $BACKUP_DIR "remote:$SERVER_NAME/$TIMESTAMP" >> /var/log/rclone.log 2>&1
+rclone move $BACKUP_DIR "remote:$SERVER_NAME/$TIMESTAMP" >> /var/log/rclone.log 2>&1
 # Clean up
 rm -rf $BACKUP_DIR
-/usr/sbin/rclone -q --min-age 1w delete "remote:$SERVER_NAME" #Remove all backups older than 2 week
-/usr/sbin/rclone -q --min-age 1w rmdirs "remote:$SERVER_NAME" #Remove all empty folders older than 2 week
-/usr/sbin/rclone cleanup "remote:" #Cleanup Trash
+rclone -q --min-age 1w delete "remote:$SERVER_NAME" #Remove all backups older than 2 week
+rclone -q --min-age 1w rmdirs "remote:$SERVER_NAME" #Remove all empty folders older than 2 week
+rclone cleanup "remote:" #Cleanup Trash
 echo "Finished";
 echo '';
 
