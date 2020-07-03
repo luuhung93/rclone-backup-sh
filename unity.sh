@@ -38,3 +38,8 @@ echo '';
 
 duration=$SECONDS
 echo "Total $size, $(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
+
+
+
+
+
