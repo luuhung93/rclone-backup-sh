@@ -16,6 +16,7 @@ cd $BACKUP_DIR/mongo
 echo "Starting Backup Database and";
 mongodump
 tar -cjvf $TIMESTAMP"dump.tar.gz" dump
+rm -rf dump
 echo "Finished";
 echo '';
 
