@@ -20,11 +20,6 @@ rm -rf dump
 echo "Finished";
 echo '';
 
-echo "Starting Backup Nginx Configuration";
-cp -r /etc/nginx/conf.d/ $BACKUP_DIR/nginx/
-echo "Finished";
-echo '';
-
 size=$(du -sh $BACKUP_DIR | awk '{ print $1}')
 
 echo "Starting Uploading Backup";
